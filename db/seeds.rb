@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+Thing.destroy_all
+Thing.create(name:Faker::FunnyName.name)
+Thing.create(name:Faker::FunnyName.name)
+Thing.create(name:Faker::FunnyName.name)
+
+puts "seeded"
