@@ -6,6 +6,9 @@ import { Route, Switch } from 'react-router-dom';
 import Things from './demo/Things';
 import NoMatch from './components/NoMatch';
 import NavBar from './components/NavBar';
+import Register from './components/Register';
+import Login from './components/Login';
+import Users from './components/Users';
 
 function App() {
   return (
@@ -14,6 +17,9 @@ function App() {
   <Container>
     <Switch>
      <Route exact path='/' component={Home}/>
+     <Route exact path='/login' component={Login}/>
+     <Route exact path='/register' component={Register}/>
+     <Route exact path='/users' component={Users}/>
      <Route exact path='/things' component={Things}/>
      <Route component={NoMatch} />
     </Switch>
