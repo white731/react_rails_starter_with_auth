@@ -11,6 +11,7 @@ const AuthProvider = (props) => {
   const handleRegister = async (user, history) => {
     try {
       let res = await Axios.post("/api/auth", user)
+      console.log("user: ", res.data.data)
       setUser(res.data.data)
       history.push("/users")
     } catch (err) {
@@ -34,7 +35,7 @@ const AuthProvider = (props) => {
     try {
       await Axios.delete("/api/auth/sign_out")
       setUser(null)
-      history.push("/")
+      history.push("/login")
 
     } catch (err) {
       alert("Error occurred while attempting to Logout user. Please Debug for more information")

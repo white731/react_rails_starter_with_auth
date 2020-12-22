@@ -35,10 +35,10 @@ export default () => {
     </Segment>
     )
    }
-    if (error){ return <p>Error</p> }
-    return things.map((t)=>{
+    if (error){ return <p>Please login in to see this page.</p> }
+    return things.map((t, index)=>{
       return (
-        <div>
+        <div key={index} >
           {t.name}
         </div>
       )

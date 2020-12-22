@@ -6,6 +6,7 @@ const Register = (props) => {
 
   const [email, setEmail] = useState("testy@test.com")
   const [password, setPassword] = useState("123456")
+  const [name, setName] = useState("Mr. Test")
   const [passwordConfirm, setPasswordConfirm] = useState("123456")
 
   const {handleRegister} = useContext(AuthContext)
@@ -13,7 +14,7 @@ const Register = (props) => {
 
   const handleSubmit = () => {
     if (password === passwordConfirm) {
-    handleRegister({email, password},props.history)
+    handleRegister({email, password, name},props.history)
     } else {
       alert("Passwords do not match, try again.")
     }
@@ -23,6 +24,15 @@ const Register = (props) => {
     <>
     <Header as="h1" textAlign="center">Register</Header>
     <Form onSubmit={handleSubmit}>
+      <Form.Input
+        required
+        autoFocus
+        name = "name"
+        label = "Name"
+        onChange = {(e)=> setName(e.target.value)}
+        value = {name}
+      >
+      </Form.Input>
       <Form.Input
         required
         autoFocus

@@ -16,7 +16,9 @@ export default () => {
       return (
       <>
         <Menu.Item onClick={() => value.handleLogout(history)} name="Logout" />
-        <MenuText content={value.email} />
+        <Link to="/user">
+          <MenuText content={value.email} />
+        </Link>
       </>
       )
     }
@@ -41,12 +43,15 @@ export default () => {
       <Link to="/users">
         <Menu.Item name='All Users'/>
       </Link>
+      <Link to="/things">
+        <Menu.Item name='Things'/>
+      </Link>
       <Menu.Menu position="right">{links()}</Menu.Menu>
     </Menu>
   )
 }
 
-const MenuText = styled(Menu.Header)`
+const MenuText = styled(Menu.Item)`
 align-self: center;
 padding: 5px;
 `

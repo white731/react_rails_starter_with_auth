@@ -1,2 +1,3 @@
 class Thing < ApplicationRecord
+  
 end
