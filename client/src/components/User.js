@@ -12,10 +12,10 @@ const User = () => {
     <Image src="https://picsum.photos/200/300"/>
     <Card.Content>
       <Card.Header>
-        <CardContent description={`email: ${email}`}/>
+        <CardContent description={name}/>
       </Card.Header>
       <CardContent>
-        {name}
+        {email}
       </CardContent>
     </Card.Content>
   </Card>

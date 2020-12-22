@@ -13,7 +13,7 @@ const AuthProvider = (props) => {
       let res = await Axios.post("/api/auth", user)
       console.log("user: ", res.data.data)
       setUser(res.data.data)
-      history.push("/users")
+      history.push("/user")
     } catch (err) {
       alert("Error occurred while attempting to register user. Please Debug for more information")
     }
@@ -23,7 +23,7 @@ const AuthProvider = (props) => {
     try {
       let res = await Axios.post("/api/auth/sign_in", user)
       setUser(res.data.data)
-      history.push("/users")
+      history.push("/user")
       console.log(res.data.data.email)
     } catch (err) {
       alert("Error occurred while attempting to Login user. Please Debug for more information")
