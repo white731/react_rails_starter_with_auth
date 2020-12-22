@@ -15,7 +15,7 @@ const Register = (props) => {
   }
   return (
     <>
-    <Header as="h1" textAlign="center">Register</Header>
+    <Header as="h1" textAlign="center">Login</Header>
     <Form onSubmit={handleSubmit}>
       <Form.Input
         required

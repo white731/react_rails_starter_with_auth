@@ -25,12 +25,20 @@ const AuthProvider = (props) => {
       history.push("/users")
       console.log(res.data.data.email)
     } catch (err) {
-      alert("Error occurred while attempting to register user. Please Debug for more information")
+      alert("Error occurred while attempting to Login user. Please Debug for more information")
     }
-
   }
 
   const handleLogout = async (history) => {
+    // debugger
+    try {
+      await Axios.delete("/api/auth/sign_out")
+      setUser(null)
+      history.push("/")
+
+    } catch (err) {
+      alert("Error occurred while attempting to Logout user. Please Debug for more information")
+    }
     
   }
 

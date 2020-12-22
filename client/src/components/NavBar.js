@@ -1,11 +1,13 @@
 import {Menu} from "semantic-ui-react"
-import {Link} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 import styled from "styled-components"
 import { useContext } from "react"
 import { AuthContext } from "../providers/AuthProvider"
 
 
 export default () => {
+
+  const history = useHistory()
 
   const value = useContext(AuthContext)
 
@@ -26,7 +28,10 @@ export default () => {
       <Link to="/users">
         <Menu.Item name='All Users'/>
       </Link>
-      <MenuText content={value.user ? value.user.email : "Please Login"}/>
+      
+      {/* <MenuText content={value.authenticated ? value.user.email : "Please Login"}/> */}
+      <MenuText content={value.authenticated ? "Logged In" : "Logged Out"}/>
+      <Menu.Item onClick={() => value.handleLogout(history)} name="Logout" />
   </Menu>
   )
 
