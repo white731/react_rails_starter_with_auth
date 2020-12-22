@@ -51,6 +51,7 @@ const AuthProvider = (props) => {
     handleLogin,
     handleLogout,
     authenticated: user !== null,
+    setUser,
   }
 
   return(

@@ -9,20 +9,24 @@ import NavBar from './components/NavBar';
 import Register from './components/Register';
 import Login from './components/Login';
 import Users from './components/Users';
+import FetchUser from './components/FetchUser';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
   <>  
   <NavBar/>
-  <Container>
-    <Switch>
-     <Route exact path='/' component={Home}/>
-     <Route exact path='/login' component={Login}/>
-     <Route exact path='/register' component={Register}/>
-     <Route exact path='/users' component={Users}/>
-     <Route component={NoMatch} />
-    </Switch>
-  </Container>
+  <FetchUser>
+    <Container>
+      <Switch>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/login' component={Login}/>
+      <Route exact path='/register' component={Register}/>
+      <ProtectedRoute exact path='/users' component={Users}/>
+      <Route component={NoMatch} />
+      </Switch>
+    </Container>
+  </FetchUser>
   </>
   );
 }

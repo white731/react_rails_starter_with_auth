@@ -11,30 +11,39 @@ export default () => {
 
   const value = useContext(AuthContext)
 
-  return (
-    <Menu>
-      <Link to="/">
-        <Menu.Item name='Home'/>
-      </Link>
-      <Link to="/things">
-        <Menu.Item name='Things'/>
-      </Link>
+  const links = () => {
+    if (value.authenticated){
+      return (
+      <>
+        <Menu.Item onClick={() => value.handleLogout(history)} name="Logout" />
+        <MenuText content={value.email} />
+      </>
+      )
+    }
+    return(
+      <>
       <Link to="/login">
         <Menu.Item name='Login'/>
       </Link>
       <Link to="/register">
         <Menu.Item name='Register'/>
       </Link>
+      
+      </>
+    )
+  }
+
+  return (
+    <Menu>
+      <Link to="/">
+        <Menu.Item name='Home'/>
+      </Link>
       <Link to="/users">
         <Menu.Item name='All Users'/>
       </Link>
-      
-      <MenuText content={value.authenticated ? value.email : "Please Login"}/>
-      <MenuText content={value.authenticated ? "Logged In" : "Logged Out"}/>
-      <Menu.Item onClick={() => value.handleLogout(history)} name="Logout" />
-  </Menu>
+      <Menu.Menu position="right">{links()}</Menu.Menu>
+    </Menu>
   )
-
 }
 
 const MenuText = styled(Menu.Header)`
