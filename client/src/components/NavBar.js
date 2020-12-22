@@ -29,7 +29,7 @@ export default () => {
         <Menu.Item name='All Users'/>
       </Link>
       
-      {/* <MenuText content={value.authenticated ? value.user.email : "Please Login"}/> */}
+      <MenuText content={value.authenticated ? value.email : "Please Login"}/>
       <MenuText content={value.authenticated ? "Logged In" : "Logged Out"}/>
       <Menu.Item onClick={() => value.handleLogout(history)} name="Logout" />
   </Menu>
